@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>ABAKPA OMECHE ANNASTASIA-INS205 Assessment</title>
+
+        <style>
+            body{
+                font-family: Arial,sans-serif;
+                margin: 30px;
+                line-height: 1.8;
+                background-color: aquamarine;
+            }
+
+            h1{
+                text-align: center;
+                color: #2c3e50;
+                background-color: #dfe6e9;
+                padding: 17px;
+                border-radius: 11px;
+            }
+
+            section{
+                background-color: beige;
+                padding: 16px;
+                margin: 15px 0;
+                border-radius: 12px;
+                box-shadow: 0px 0px 6px rgba(0,0,0,0.1);
+            }
+
+            h2{
+                color: #34495e;
+            }
+
+            #send-btn{
+                display: inline-block;
+                padding: 10px 20px;
+               border-radius: 5px;
+                text-decoration: none;
+                color: white;
+                font-size: 16px;
+                background-color: blue;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <!-- Main Heading -->
+         <h1>INS205 Assessment</h1>
+
+         <!-- About Me -->
+          <section>
+            <h2>About Me</h2>
+
+            <p><strong>Full Name:</strong> ABAKPA OMECHE ANNASTASIA</p>
+
+            <p><strong>Department :</strong> COMPUTER SCIENCE</p>
+
+            <p><strong>Level:</strong> 200 level</p>
+            <p><strong>Matric Number:</strong> UJ/2024/NS/0304</p>
+          </section>
+
+          <!-- About This Page -->
+           <section>
+            <h2>About This Page</h2>
+
+            <p>
+                This webpage was created as part of the INS205 assessment.
+                It demonstrates the use of HTML, CSS AND JavaScript in creating a simple static webpage.
+            </p>
+
+            <P>
+                INS205 introduces students to web technologies and the fundamentals of designing and structuring webpages.
+            </P>
+           </section>
+
+           <!-- Email Button -->
+            <a 
+            href="mailto:2020ns0304@unijos.edu.ng"
+            id="send-btn">
+                Send Email
+            </a>
+
+            <!-- Java Script -->
+             <script>
+
+                const matric = "UJ/2024/NS/0304";
+
+                function generateColor(str) {
+                    let hash = 0;
+
+                    for (let i = 0; i < str.length; i++) {
+                       hash = (hash * 31 + str .charCodeAt(i)) >>> 0;
+                    }
+
+                    return hash;
+                    
+                }
+
+                const normalised = matric.trim().toUpperCase();
+
+                const hue = hashString(normalised) % 360;
+               
+                const buttonColor = 'hsl(${hue}, 65%, 45%)';
+                document.getElementById("send-btn").style.background = buttonColor;
+             </script>
+             
+    </body>
+</html>
