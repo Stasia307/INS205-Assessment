@@ -2,8 +2,11 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <!-- The title of the student as required by the lecturer-->
         <title>ABAKPA OMECHE ANNASTASIA-INS205 Assessment</title>
-
+               
+        <!-- CSS Styles -->
+         <!-- This section contains the CSS styles for the webpage, which define the appearance and layout of the elements on the page. -->
         <style>
             body{
                 font-family: Arial,sans-serif;
@@ -47,9 +50,11 @@
     <body>
 
         <!-- Main Heading -->
+         <!--This is the main heading of the page-->
          <h1>INS205 Assessment</h1>
 
          <!-- About Me -->
+          <!--This covers: full name, department, level, and matric number and also a personal details of who i am and what i love to do, making the work to be unique-->
           <section>
             <h2>About Me</h2>
 
@@ -58,32 +63,41 @@
             <p><strong>Department :</strong> COMPUTER SCIENCE</p>
 
             <p><strong>Level:</strong> 200 level</p>
-              
             <p><strong>Matric Number:</strong> UJ/2024/NS/0304</p>
 
-              <p>Hello, I am ABAKPA OMECHE ANNASTASIA, a computer science student at Unijos.
+            <p>Hello, I am ABAKPA OMECHE ANNASTASIA, a computer science student at Unijos.
                 I have a strong intrest in web development and enjoy creating interactive and user-friendly websites.
                 Outside of academics, I love exploring new technologies and enhancing my coding skills.I am passionate about Japanese language and culture.
                 My interests in Japanese began through anime and manga, which sparked my curiosity about the language and culture. I have been learning Japanese for a few years now and have developed a deep appreciation for its rich history, traditions, and unique writing system.
-                I am a continuous learner who values showing up daily,even when progress feels slow. Iaim to grow both as a developer and a Japanese language student.
+                I am a continuous learner who values showing up daily,even when progress feels slow. Iaim to grow both as a developer and a Japanese language
             </p>
           </section>
 
           <!-- About This Page -->
+           <!--This describes what the page is about and what it contains-->
            <section>
             <h2>About This Page</h2>
 
             <p>
                 This webpage was created as part of the INS205 assessment.
                 It demonstrates the use of HTML, CSS AND JavaScript in creating a simple static webpage.
+                It provides information about the student, including their name, department, level, and matric number.The page also includes a button that allows users to send an email to the student directly from the webpage.
+                The webpage also demonstrates the use of html, css and javascript to create a visually appealing and interactive user experience.
+                Additionally, it includes acontact button that allows users to send an email to the student directly from the webpage.
             </p>
 
-            <P>
-                INS205 introduces students to web technologies and the fundamentals of designing and structuring webpages.
-            </P>
+            <p>The INS205 course focuses on web development and programming concepts, and this webpage serves as a practical application of the skills learned in the course. It showcases the student's ability to create a functional and visually appealing webpage using HTML, CSS, and JavaScript.
+                The project demonstrates the practical application of these concepts in creating a static webpage.
+
+            </p>
+
            </section>
 
            <!-- Email Button -->
+            <!--mailto:the href points to the user's email which is a university of jos student address
+            id="send-btn" is used to style the button and also to change the background color of the button based on the matric number using JavaScript.
+            Button text is "Send Email" which is displayed on the button. When the button is clicked, it opens the user's default email client with a new email draft addressed to the specified email address.
+            -->
             <a 
             href="mailto:2020ns0304@unijos.edu.ng"
             id="send-btn">
@@ -92,28 +106,34 @@
 
             <!-- Java Script -->
              <script>
+    /* -------------------------------------------------------
+       Matric-number → button colour
+       Replace the matric value below with your own number.
+       ------------------------------------------------------- */
+    const matric = "UJ/2024/NS/034"; // <-- CHANGE THIS TO YOUR MAT. NO.
 
-                const matric = "UJ/2024/NS/0304";
+    /* CHANGE NOTHING BEYOND THIS POINT - CHANGE NOTHING BEYOND THIS POINT */
 
-                function generateColor(str) {
-                    let hash = 0;
+    function hashString(str) {
+        let hash = 0;
+        for (let i = 0; i < str.length; i++) {
+            hash = (hash * 31 + str.charCodeAt(i)) >>> 0;
+        }
+        return hash;
+    }
 
-                    for (let i = 0; i < str.length; i++) {
-                       hash = (hash * 31 + str .charCodeAt(i)) >>> 0;
-                    }
+    // Normalise input
+    const normalised = matric.trim().toUpperCase();
 
-                    return hash;
-                    
-                }
+    // Map the hash to a hue value between 0 and 359 degrees
+    const hue = hashString(normalised) % 360;
 
-                const normalised = matric.trim().toUpperCase();
+    // Build an HSL colour: fixed saturation & lightness, varying hue
+    const buttonColour = `hsl(${hue}, 65%, 45%)`;
 
-                const hue = hashString(normalised) % 360;
-               
-                const buttonColor = 'hsl(${hue}, 65%, 45%)';
-                 
-                document.getElementById("send-btn").style.background = buttonColor;
-             </script>
+    // Apply the colour to the Send Email button
+    document.getElementById("send-btn").style.background = buttonColour;
+</script>
              
     </body>
 </html>
